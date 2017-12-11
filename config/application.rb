@@ -45,5 +45,19 @@ module EVotingApi
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.api_only = true
+
+    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('lib')
+
+    config.middleware.insert_after Rails::Rack::Logger, Rack::Cors, logger: Rails.logger do
+      allow do
+        origins '*'
+        resource '*',
+                 headers: :any,
+                 methods: %i(get post put patch delete options head)
+      end
+    end
   end
 end
