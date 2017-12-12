@@ -33,6 +33,8 @@ class User < ApplicationRecord
 
 	enumerize :role, in: [:admin, :user], default: :user
 
+  has_many :votes
+
 	def login=(login)
     @login = login
   end

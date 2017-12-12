@@ -25,6 +25,7 @@ class ApplicationController < ActionController::API
         @current_user ||= user
 				@current_user.current_request_at = DateTime.now
 				@current_user.save(validate: false)
+        return @current_user
       end
     end
   end

@@ -12,4 +12,9 @@ class Role < ApplicationRecord
 
 	validates :title, presence: true
 	
+	has_many :votes
+
+	def voted_by?(current_user)
+		self.votes.where(user_id: current_user.id).present?
+	end
 end

@@ -5,10 +5,6 @@ class API::V1::CandidatesController < API::V1::BaseController
     @total = @candidates.length
   end
 
-  def grouped
-    
-  end
-
   private
 
     def candidate_params

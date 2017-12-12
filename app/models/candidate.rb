@@ -15,4 +15,10 @@ class Candidate < ApplicationRecord
   belongs_to :role
 
   validates :name, :last_name, :public_name, presence: true
+
+  has_many :votes
+
+  def is_voted_by?(current_user)
+  	Vote.where(user_id: current_user.id, role_id: self.role.id).present?
+  end
 end
