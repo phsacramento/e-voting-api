@@ -12,6 +12,11 @@ Rails.application.routes.draw do
       end
 
       resources :roles
+      resources :candidates do
+        collection do
+          get :grouped
+        end
+      end
     end
   end
 end

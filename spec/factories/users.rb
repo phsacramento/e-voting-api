@@ -18,6 +18,8 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  role                   :string
+#  current_request_at     :datetime
 #
 
 FactoryGirl.define do

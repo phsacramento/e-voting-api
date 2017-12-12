@@ -9,9 +9,9 @@ module API
         set_resource(resource_class.new(resource_params))
 
         if get_resource.save
-          render :show, status: :created
+          render :success, status: :created
         else
-          render json: ErrorSerializer.serialize(get_resource.errors), status: :unprocessable_entity
+          render :fail, status: :unprocessable_entity
         end
       end
 
@@ -43,7 +43,7 @@ module API
         if get_resource.save
           render :show
         else
-          render json: ErrorSerializer.serialize(get_resource.errors), status: :unprocessable_entity
+          render :fail, status: :unprocessable_entity
         end
       end
 
