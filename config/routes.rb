@@ -19,11 +19,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :votes do
-        collection do
-          get :check
-        end
-      end
+      resources :votes 
     end
   end
 end

@@ -1,6 +1,6 @@
 # e-voting-api
 
-This project is a [Rails](http://rubyonrails.org/) application used to SOMETHING.
+This project is a [Rails](http://rubyonrails.org/) application used to Technical Test.
 
 ## Dependencies
 

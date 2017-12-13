@@ -21,11 +21,12 @@ class ApplicationController < ActionController::API
   def current_user
     if auth_present?
       user = User.find(auth["user"])
+
       if user
         @current_user ||= user
 				@current_user.current_request_at = DateTime.now
 				@current_user.save(validate: false)
-        return @current_user
+        @current_user
       end
     end
   end
