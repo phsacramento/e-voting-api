@@ -16,7 +16,7 @@ class Candidate < ApplicationRecord
 
   validates :name, :last_name, :public_name, presence: true
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   def is_voted_by?(current_user)
   	Vote.where(user_id: current_user.id, role_id: self.role.id).present?

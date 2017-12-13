@@ -12,7 +12,8 @@ class Role < ApplicationRecord
 
 	validates :title, presence: true
 	
-	has_many :votes
+	has_many :votes, dependent: :destroy
+	has_many :candidates, dependent: :destroy
 
 	def voted_by?(current_user)
 		self.votes.where(user_id: current_user.id).present?
