@@ -17,8 +17,11 @@ module API
 
       # DELETE /api/{plural_resource_name}/1
       def destroy
-        get_resource.destroy
-        head :no_content
+        if get_resource.destroy
+          render :success, status: 201
+        else
+          render :fail, status: 422
+        end
       end
 
       # GET /api/{plural_resource_name}
